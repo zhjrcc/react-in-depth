@@ -10,6 +10,7 @@ export function CompactUserProfile({ userId }) {
     userPreferences,
     toggleEditMode,
     updatePreferences,
+    setUserData,
   } = useUserProfile(userId);
 
   if (!userData) return <div>Loading...</div>;
@@ -20,7 +21,7 @@ export function CompactUserProfile({ userId }) {
       {editMode ? (
         <UserDataForm
           userData={userData}
-          onSave={toggleEditMode} // Assuming onSave is the prop for handling save action
+          onChange={setUserData}
         />
       ) : (
         <UserDetails userData={userData} />
